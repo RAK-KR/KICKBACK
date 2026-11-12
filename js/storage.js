@@ -1,0 +1,10 @@
+const KEY = 'kickback.save.v1', BEST = 'kickback.best.v1', OPT = 'kickback.opt.v1';
+const get = (k) => { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } };
+const set = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* 저장 불가 환경은 무시 */ } };
+export const loadSave = () => get(KEY);
+export const writeSave = (v) => set(KEY, v);
+export const clearSave = () => { try { localStorage.removeItem(KEY); } catch (e) { /* 무시 */ } };
+export const loadBest = () => get(BEST);
+export const writeBest = (v) => set(BEST, v);
+export const loadOpt = () => Object.assign({ mute: false, sens: 1 }, get(OPT));
+export const writeOpt = (v) => set(OPT, v);

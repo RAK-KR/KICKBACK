@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0d">
+<title>KICKBACK</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<div id="hud">
+  <div class="hud-left">
+    <div class="height"><span id="hud-height">0</span><small>m</small></div>
+    <div class="sub" id="hud-best">최고 0m</div>
+  </div>
+  <div class="hud-right">
+    <div class="time" id="hud-time">00:00.00</div>
+    <div class="sub" id="hud-sub">0발 · 추락 0</div>
+  </div>
+  <button id="btn-pause" aria-label="일시정지"><i></i><i></i></button>
+  <div id="zone"></div>
+  <div id="toast"></div>
+</div>
+
+<section id="title" class="screen">
+  <div class="panel">
+    <div class="stripe"></div>
+    <h1>KICKBACK</h1>
+    <p class="tag">걷지 못합니다. 반동으로만 오릅니다.</p>
+    <div class="buttons">
+      <button id="btn-continue" class="primary">이어하기</button>
+      <button id="btn-new">새로 시작</button>
+    </div>
+    <label class="sens"><span>조준 감도</span><input type="range" class="sens-range" min="0.2" max="3" step="0.05" value="1"><b class="sens-val">1.00</b></label>
+    <ul class="how">
+      <li><b>조준</b> 마우스 이동 / 화면을 누른 채 끌기</li>
+      <li><b>발사</b> 클릭 / 손을 떼기 - 쏜 반대쪽으로 날아갑니다</li>
+      <li><b>탄 2발</b> 발판에 착지하면 재장전됩니다</li>
+      <li><b>ESC</b> 일시정지 / 마우스 풀기</li>
+      <li><b>[ ]</b> 플레이 중 감도 조절 &nbsp; <b>M</b> 소리</li>
+    </ul>
+    <div class="best" id="title-best"></div>
+  </div>
+</section>
+
+<section id="pause" class="screen">
+  <div class="panel small">
+    <div class="stripe"></div>
+    <h2>일시정지</h2>
+    <div class="buttons">
+      <button id="btn-resume" class="primary">계속</button>
+      <button id="btn-sound">소리 켜짐</button>
+      <button id="btn-restart">처음부터</button>
+    </div>
+    <label class="sens"><span>조준 감도</span><input type="range" class="sens-range" min="0.2" max="3" step="0.05" value="1"><b class="sens-val">1.00</b></label>
+  </div>
+</section>
+
+<section id="clear" class="screen">
+  <div class="panel small">
+    <div class="stripe"></div>
+    <h2>정상 도달</h2>
+    <div class="result"><span id="clear-time">00:00.00</span></div>
+    <div class="rows">
+      <div><em>발사</em><b id="clear-shots">0</b></div>
+      <div><em>추락</em><b id="clear-falls">0</b></div>
+    </div>
+    <div class="best" id="clear-best"></div>
+    <div class="buttons">
+      <button id="btn-again" class="primary">다시 도전</button>
+      <button id="btn-totitle">처음 화면</button>
+    </div>
+  </div>
+</section>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
